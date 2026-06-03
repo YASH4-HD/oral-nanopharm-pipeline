@@ -12,11 +12,11 @@ warnings.filterwarnings("ignore")
 
 st.set_page_config(
     page_title="Oral Carcinoma NanoPharm Pipeline",
-    page_icon="💊",
+    page_icon="馃拪",
     layout="wide"
 )
 
-# ── Global CSS ──────────────────────────────────────────────────────────────
+# 鈹€鈹€ Global CSS 鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€
 st.markdown("""
 <style>
     .main-title {
@@ -48,21 +48,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="main-title">💊 Oral Carcinoma NanoPharm Pipeline</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-title">Chitosan Nanoparticle Formulation · Drug Release Kinetics · TCGA-HNSC Genomics · Buccal Film QC</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">馃拪 Oral Carcinoma NanoPharm Pipeline</div>', unsafe_allow_html=True)
+st.markdown('<div class="sub-title">Chitosan Nanoparticle Formulation 路 Drug Release Kinetics 路 TCGA-HNSC Genomics 路 Buccal Film QC</div>', unsafe_allow_html=True)
 
 tabs = st.tabs([
-    "🧪 Tab 1 · Formulation Optimizer",
-    "📈 Tab 2 · Release Kinetics",
-    "🧬 Tab 3 · HNSC Genomics",
-    "🎞️ Tab 4 · Buccal Film QC"
+    "馃И Tab 1 路 Formulation Optimizer",
+    "馃搱 Tab 2 路 Release Kinetics",
+    "馃К Tab 3 路 HNSC Genomics",
+    "馃帪锔?Tab 4 路 Buccal Film QC"
 ])
 
-# ═══════════════════════════════════════════════════════════════════════════
-# TAB 1 — Nanoparticle Formulation Optimizer
-# ═══════════════════════════════════════════════════════════════════════════
-with tabs[0]:
-    st.markdown('<div class="section-header">🧪 Chitosan Nanoparticle Formulation Optimizer</div>', unsafe_allow_html=True)
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?# TAB 1 鈥?Nanoparticle Formulation Optimizer
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?with tabs[0]:
+    st.markdown('<div class="section-header">馃И Chitosan Nanoparticle Formulation Optimizer</div>', unsafe_allow_html=True)
     st.markdown('<div class="info-box">Empirical predictions based on established Taguchi/Box-Behnken design equations for chitosan-TPP ionotropic gelation nanoparticles loaded with small-molecule drugs (e.g., Atorvastatin).</div>', unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
@@ -70,7 +68,7 @@ with tabs[0]:
         st.markdown("**Polymer & Crosslinker**")
         chitosan_conc   = st.slider("Chitosan concentration (mg/mL)", 1.0, 5.0, 2.0, 0.1)
         tpp_conc        = st.slider("TPP concentration (mg/mL)", 0.5, 3.0, 1.0, 0.1)
-        chitosan_mw     = st.selectbox("Chitosan MW", ["Low (50–190 kDa)", "Medium (190–310 kDa)", "High (310–375 kDa)"])
+        chitosan_mw     = st.selectbox("Chitosan MW", ["Low (50鈥?90 kDa)", "Medium (190鈥?10 kDa)", "High (310鈥?75 kDa)"])
         dd              = st.slider("Degree of deacetylation (%)", 75, 95, 85)
         ph_preparation  = st.slider("Preparation pH", 4.0, 6.5, 5.0, 0.1)
 
@@ -82,31 +80,31 @@ with tabs[0]:
         sonication_amp  = st.slider("Sonication amplitude (%)", 20, 80, 40)
         stirring_speed  = st.slider("Stirring speed (rpm)", 200, 1200, 600, 50)
 
-    if st.button("🔬 Predict Formulation Properties", type="primary", use_container_width=True):
-        # ── Empirical models from published chitosan-TPP NP literature ──
-        mw_factor = {"Low (50–190 kDa)": 0.85, "Medium (190–310 kDa)": 1.0, "High (310–375 kDa)": 1.18}[chitosan_mw]
+    if st.button("馃敩 Predict Formulation Properties", type="primary", use_container_width=True):
+        # 鈹€鈹€ Empirical models from published chitosan-TPP NP literature 鈹€鈹€
+        mw_factor = {"Low (50鈥?90 kDa)": 0.85, "Medium (190鈥?10 kDa)": 1.0, "High (310鈥?75 kDa)": 1.18}[chitosan_mw]
 
-        # Particle size (nm) — increases with chitosan conc & MW, decreases with sonication
+        # Particle size (nm) 鈥?increases with chitosan conc & MW, decreases with sonication
         size_base = (120 + chitosan_conc * 55 + tpp_conc * 12 - sonication_time * 2.8
                      - sonication_amp * 0.6 + (ph_preparation - 5.0) * 18) * mw_factor
         size_nm   = max(80, min(800, size_base + np.random.uniform(-8, 8)))
 
-        # PDI — lower is better; rises with conc, falls with optimised sonication
+        # PDI 鈥?lower is better; rises with conc, falls with optimised sonication
         pdi = max(0.08, min(0.55, 0.12 + chitosan_conc * 0.04 - sonication_time * 0.005
                             + drug_polymer_ratio * 0.08 + (stirring_speed - 600) * 0.00005))
 
-        # Zeta potential (mV) — chitosan is cationic; rises with DD and chitosan conc, falls with pH
+        # Zeta potential (mV) 鈥?chitosan is cationic; rises with DD and chitosan conc, falls with pH
         zeta = max(15, min(55, 18 + dd * 0.22 + chitosan_conc * 2.1
                            - ph_preparation * 2.8 - tpp_conc * 1.5))
 
-        # Encapsulation efficiency (%) — Bell-shaped with drug:polymer ratio
+        # Encapsulation efficiency (%) 鈥?Bell-shaped with drug:polymer ratio
         ee = max(30, min(95, 85 - abs(drug_polymer_ratio - 0.3) * 60
                          - (ph_preparation - 5.0) ** 2 * 5 + (dd - 85) * 0.3))
 
         # Drug loading (%)
         dl = max(5, min(40, drug_conc * 8.5 * ee / 100 / (drug_conc + chitosan_conc) * 100))
 
-        # Mucoadhesion score (proxy, 1–10)
+        # Mucoadhesion score (proxy, 1鈥?0)
         mucoad = min(10, max(2, 3.5 + chitosan_conc * 0.9 + (dd - 75) * 0.08 - (ph_preparation - 4.5) * 0.4))
 
         st.markdown("---")
@@ -115,17 +113,17 @@ with tabs[0]:
         with c1:
             st.markdown(f'<div class="metric-card"><div class="metric-label">Particle Size</div><div class="metric-value">{size_nm:.1f} nm</div></div>', unsafe_allow_html=True)
             colour = "result-good" if size_nm < 300 else "result-warn"
-            st.markdown(f'<span class="{colour}">{"✔ Suitable for buccal delivery" if size_nm < 300 else "⚠ Consider reducing chitosan or increasing sonication"}</span>', unsafe_allow_html=True)
+            st.markdown(f'<span class="{colour}">{"鉁?Suitable for buccal delivery" if size_nm < 300 else "鈿?Consider reducing chitosan or increasing sonication"}</span>', unsafe_allow_html=True)
 
         with c2:
             st.markdown(f'<div class="metric-card"><div class="metric-label">PDI</div><div class="metric-value">{pdi:.3f}</div></div>', unsafe_allow_html=True)
             colour = "result-good" if pdi < 0.3 else "result-warn"
-            st.markdown(f'<span class="{colour}">{"✔ Monodisperse" if pdi < 0.3 else "⚠ Polydisperse — optimise sonication"}</span>', unsafe_allow_html=True)
+            st.markdown(f'<span class="{colour}">{"鉁?Monodisperse" if pdi < 0.3 else "鈿?Polydisperse 鈥?optimise sonication"}</span>', unsafe_allow_html=True)
 
         with c3:
             st.markdown(f'<div class="metric-card"><div class="metric-label">Zeta Potential</div><div class="metric-value">+{zeta:.1f} mV</div></div>', unsafe_allow_html=True)
             colour = "result-good" if zeta > 25 else "result-warn"
-            st.markdown(f'<span class="{colour}">{"✔ Stable colloidal system" if zeta > 25 else "⚠ Risk of aggregation"}</span>', unsafe_allow_html=True)
+            st.markdown(f'<span class="{colour}">{"鉁?Stable colloidal system" if zeta > 25 else "鈿?Risk of aggregation"}</span>', unsafe_allow_html=True)
 
         c4, c5, c6 = st.columns(3)
         with c4:
@@ -138,7 +136,7 @@ with tabs[0]:
         # Radar chart
         st.markdown("**Formulation Quality Radar**")
         categories = ['Size\n(inv)', 'PDI\n(inv)', 'Zeta\nPotential', 'EE%', 'Drug\nLoading', 'Mucoadhesion']
-        # Normalise 0–1 (higher = better)
+        # Normalise 0鈥? (higher = better)
         scores = [
             1 - min(1, max(0, (size_nm - 80) / 720)),
             1 - min(1, max(0, (pdi - 0.08) / 0.47)),
@@ -167,19 +165,17 @@ with tabs[0]:
         # Optimisation suggestions
         st.markdown("**Optimisation Suggestions**")
         suggestions = []
-        if size_nm > 300:  suggestions.append("↑ Sonication time/amplitude or ↓ chitosan concentration to reduce particle size.")
-        if pdi > 0.3:      suggestions.append("↑ Sonication amplitude or ↓ drug:polymer ratio to improve monodispersity.")
-        if zeta < 25:      suggestions.append("↓ Preparation pH or ↑ degree of deacetylation to enhance zeta potential.")
-        if ee < 60:        suggestions.append("Adjust drug:polymer ratio toward 0.25–0.35 range for optimal encapsulation.")
-        if not suggestions: suggestions.append("✔ Formulation parameters are within optimal ranges for all key metrics.")
+        if size_nm > 300:  suggestions.append("鈫?Sonication time/amplitude or 鈫?chitosan concentration to reduce particle size.")
+        if pdi > 0.3:      suggestions.append("鈫?Sonication amplitude or 鈫?drug:polymer ratio to improve monodispersity.")
+        if zeta < 25:      suggestions.append("鈫?Preparation pH or 鈫?degree of deacetylation to enhance zeta potential.")
+        if ee < 60:        suggestions.append("Adjust drug:polymer ratio toward 0.25鈥?.35 range for optimal encapsulation.")
+        if not suggestions: suggestions.append("鉁?Formulation parameters are within optimal ranges for all key metrics.")
         for s in suggestions:
             st.markdown(f"- {s}")
 
-# ═══════════════════════════════════════════════════════════════════════════
-# TAB 2 — Drug Release Kinetics Analyzer
-# ═══════════════════════════════════════════════════════════════════════════
-with tabs[1]:
-    st.markdown('<div class="section-header">📈 Drug Release Kinetics Analyzer</div>', unsafe_allow_html=True)
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?# TAB 2 鈥?Drug Release Kinetics Analyzer
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?with tabs[1]:
+    st.markdown('<div class="section-header">馃搱 Drug Release Kinetics Analyzer</div>', unsafe_allow_html=True)
     st.markdown('<div class="info-box">Fit your in-vitro cumulative drug release data to Zero Order, First Order, Higuchi, Korsmeyer-Peppas, and Hixson-Crowell models. Identifies the dominant release mechanism automatically.</div>', unsafe_allow_html=True)
 
     input_mode = st.radio("Data input mode", ["Use example data (Atorvastatin-chitosan NP)", "Enter my own data"], horizontal=True)
@@ -189,20 +185,20 @@ with tabs[1]:
         cumrel  = np.array([8.2, 14.5, 24.1, 36.8, 47.2, 55.9, 67.4, 74.8, 80.1, 85.3])
         st.success("Loaded example: Atorvastatin-chitosan NP release in PBS pH 6.8 (simulated buccal fluid)")
     else:
-        st.markdown("**Paste time (hours) and cumulative % release — comma separated:**")
+        st.markdown("**Paste time (hours) and cumulative % release 鈥?comma separated:**")
         time_raw = st.text_input("Time points (h)", "0.5,1,2,4,6,8,12,16,20,24")
         rel_raw  = st.text_input("Cumulative release (%)", "8.2,14.5,24.1,36.8,47.2,55.9,67.4,74.8,80.1,85.3")
         try:
             time_h = np.array([float(x) for x in time_raw.split(",")])
             cumrel = np.array([float(x) for x in rel_raw.split(",")])
         except:
-            st.error("Invalid input — check format."); st.stop()
+            st.error("Invalid input 鈥?check format."); st.stop()
 
     medium   = st.selectbox("Dissolution medium", ["PBS pH 6.8 (buccal)", "PBS pH 7.4 (systemic)", "0.1N HCl pH 1.2 (gastric)", "Acetate buffer pH 4.5"])
-    temp_c   = st.number_input("Temperature (°C)", value=37.0)
+    temp_c   = st.number_input("Temperature (掳C)", value=37.0)
     rpm_val  = st.number_input("Apparatus speed (rpm)", value=50)
 
-    if st.button("📊 Fit Release Models", type="primary", use_container_width=True):
+    if st.button("馃搳 Fit Release Models", type="primary", use_container_width=True):
 
         Mt_M0 = cumrel / 100  # fractional release
 
@@ -215,7 +211,7 @@ with tabs[1]:
             ss_res = np.sum((cumrel - pred)**2)
             ss_tot = np.sum((cumrel - np.mean(cumrel))**2)
             r2 = 1 - ss_res/ss_tot
-            results['Zero Order'] = {'k': popt[0], 'r2': r2, 'pred': pred, 'eq': f'Q = {popt[0]:.3f}·t'}
+            results['Zero Order'] = {'k': popt[0], 'r2': r2, 'pred': pred, 'eq': f'Q = {popt[0]:.3f}路t'}
         except: pass
 
         # First order: ln(100-Q) = ln(100) - K1*t
@@ -225,7 +221,7 @@ with tabs[1]:
             pred_ln = np.log(100) - popt[0]*time_h
             r2 = pearsonr(ln_data, pred_ln)[0]**2
             pred_q = 100*(1 - np.exp(-popt[0]*time_h))
-            results['First Order'] = {'k': popt[0], 'r2': r2, 'pred': pred_q, 'eq': f'ln(100-Q) = ln100 - {popt[0]:.4f}·t'}
+            results['First Order'] = {'k': popt[0], 'r2': r2, 'pred': pred_q, 'eq': f'ln(100-Q) = ln100 - {popt[0]:.4f}路t'}
         except: pass
 
         # Higuchi: Q = KH * sqrt(t)
@@ -235,7 +231,7 @@ with tabs[1]:
             ss_res = np.sum((cumrel - pred)**2)
             ss_tot = np.sum((cumrel - np.mean(cumrel))**2)
             r2 = 1 - ss_res/ss_tot
-            results['Higuchi'] = {'k': popt[0], 'r2': r2, 'pred': pred, 'eq': f'Q = {popt[0]:.3f}·√t'}
+            results['Higuchi'] = {'k': popt[0], 'r2': r2, 'pred': pred, 'eq': f'Q = {popt[0]:.3f}路鈭歵'}
         except: pass
 
         # Korsmeyer-Peppas: Mt/M0 = k*t^n
@@ -249,7 +245,7 @@ with tabs[1]:
             ss_tot = np.sum((Mt_M0[Mt_M0<=0.6]*100 - np.mean(Mt_M0[Mt_M0<=0.6]*100))**2)
             r2 = 1 - ss_res/max(ss_tot, 1e-10)
             results['Korsmeyer-Peppas'] = {'k': k_kp, 'n': n_kp, 'r2': r2, 'pred': pred_q,
-                                            'eq': f'Mt/M0 = {k_kp:.4f}·t^{n_kp:.3f}  (n={n_kp:.3f})'}
+                                            'eq': f'Mt/M0 = {k_kp:.4f}路t^{n_kp:.3f}  (n={n_kp:.3f})'}
         except: pass
 
         # Hixson-Crowell: (100-Q)^(1/3) = 100^(1/3) - Ks*t
@@ -260,29 +256,29 @@ with tabs[1]:
             r2 = pearsonr(hc_data, pred_hc)[0]**2
             pred_q  = 100 - (100**(1/3) - popt[0]*time_h)**3
             results['Hixson-Crowell'] = {'k': popt[0], 'r2': r2, 'pred': pred_q,
-                                          'eq': f'(100-Q)^(1/3) = {100**(1/3):.3f} - {popt[0]:.4f}·t'}
+                                          'eq': f'(100-Q)^(1/3) = {100**(1/3):.3f} - {popt[0]:.4f}路t'}
         except: pass
 
-        # ── Best fit ──
+        # 鈹€鈹€ Best fit 鈹€鈹€
         best_model = max(results, key=lambda m: results[m]['r2'])
 
         st.subheader("Model Fitting Results")
         summary_rows = []
         for model, res in results.items():
-            row = {'Model': model, 'Equation': res['eq'], 'R²': f"{res['r2']:.4f}",
-                   'Best Fit': '✔ Best' if model == best_model else ''}
+            row = {'Model': model, 'Equation': res['eq'], 'R虏': f"{res['r2']:.4f}",
+                   'Best Fit': '鉁?Best' if model == best_model else ''}
             summary_rows.append(row)
         st.dataframe(pd.DataFrame(summary_rows).set_index('Model'), use_container_width=True)
 
-        # ── Release mechanism interpretation ──
+        # 鈹€鈹€ Release mechanism interpretation 鈹€鈹€
         if 'Korsmeyer-Peppas' in results:
             n = results['Korsmeyer-Peppas']['n']
             if n <= 0.45:   mech = "Fickian diffusion (drug diffuses through polymer matrix)"
             elif n <= 0.89: mech = "Anomalous / Non-Fickian transport (diffusion + swelling)"
             else:           mech = "Case II transport (polymer relaxation / erosion controlled)"
-            st.markdown(f"**Korsmeyer-Peppas n = {n:.3f} → {mech}**")
+            st.markdown(f"**Korsmeyer-Peppas n = {n:.3f} 鈫?{mech}**")
 
-        # ── Plot all fits ──
+        # 鈹€鈹€ Plot all fits 鈹€鈹€
         fig, axes = plt.subplots(1, 2, figsize=(12, 4.5))
         colors = {'Zero Order':'#e74c3c','First Order':'#3498db','Higuchi':'#2ecc71',
                   'Korsmeyer-Peppas':'#9b59b6','Hixson-Crowell':'#f39c12'}
@@ -295,17 +291,17 @@ with tabs[1]:
                     color=colors.get(model,'grey'), linewidth=2, label=model,
                     linestyle='--' if model != best_model else '-')
         ax.set_xlabel("Time (h)"); ax.set_ylabel("Cumulative Release (%)")
-        ax.set_title(f"Release Profiles  |  Best fit: {best_model}  (R²={results[best_model]['r2']:.4f})")
+        ax.set_title(f"Release Profiles  |  Best fit: {best_model}  (R虏={results[best_model]['r2']:.4f})")
         ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
 
-        # R² comparison bar chart
+        # R虏 comparison bar chart
         ax2 = axes[1]
         models_list = list(results.keys())
         r2_vals = [results[m]['r2'] for m in models_list]
         bar_colors = [colors.get(m,'#ccc') for m in models_list]
         bars = ax2.barh(models_list, r2_vals, color=bar_colors, edgecolor='white')
         ax2.set_xlim(0, 1.05)
-        ax2.set_xlabel("R² value"); ax2.set_title("Model Comparison")
+        ax2.set_xlabel("R虏 value"); ax2.set_title("Model Comparison")
         for bar, val in zip(bars, r2_vals):
             ax2.text(val + 0.01, bar.get_y() + bar.get_height()/2,
                      f'{val:.4f}', va='center', fontsize=9)
@@ -319,15 +315,13 @@ with tabs[1]:
             t50 = np.interp(50, best_pred, time_h) if max(best_pred) >= 50 else None
             t80 = np.interp(80, best_pred, time_h) if max(best_pred) >= 80 else None
             c1, c2 = st.columns(2)
-            if t50: c1.markdown(f'<div class="metric-card"><div class="metric-label">T₅₀ (50% release)</div><div class="metric-value">{t50:.2f} h</div></div>', unsafe_allow_html=True)
-            if t80: c2.markdown(f'<div class="metric-card"><div class="metric-label">T₈₀ (80% release)</div><div class="metric-value">{t80:.2f} h</div></div>', unsafe_allow_html=True)
+            if t50: c1.markdown(f'<div class="metric-card"><div class="metric-label">T鈧呪個 (50% release)</div><div class="metric-value">{t50:.2f} h</div></div>', unsafe_allow_html=True)
+            if t80: c2.markdown(f'<div class="metric-card"><div class="metric-label">T鈧堚個 (80% release)</div><div class="metric-value">{t80:.2f} h</div></div>', unsafe_allow_html=True)
         except: pass
 
-# ═══════════════════════════════════════════════════════════════════════════
-# TAB 3 — TCGA-HNSC Genomics
-# ═══════════════════════════════════════════════════════════════════════════
-with tabs[2]:
-    st.markdown('<div class="section-header">🧬 TCGA-HNSC Differential Expression Analysis</div>', unsafe_allow_html=True)
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?# TAB 3 鈥?TCGA-HNSC Genomics
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?with tabs[2]:
+    st.markdown('<div class="section-header">馃К TCGA-HNSC Differential Expression Analysis</div>', unsafe_allow_html=True)
     st.markdown('<div class="info-box">Fetches TCGA Head & Neck Squamous Cell Carcinoma (HNSC) gene expression data via the GDC API. Identifies differentially expressed genes relevant to oral carcinoma and Atorvastatin targets (HMGCR, EGFR, ERBB2).</div>', unsafe_allow_html=True)
 
     target_genes = st.multiselect(
@@ -337,13 +331,13 @@ with tabs[2]:
         default=["HMGCR", "EGFR", "ERBB2", "TP53", "CDKN2A"]
     )
     n_samples = st.slider("Number of samples to fetch", 20, 100, 40, 10)
-    fc_thresh  = st.slider("Log₂ Fold Change threshold", 0.5, 3.0, 1.0, 0.25)
+    fc_thresh  = st.slider("Log鈧?Fold Change threshold", 0.5, 3.0, 1.0, 0.25)
     pval_thresh = st.selectbox("p-value threshold", [0.05, 0.01, 0.001], index=0)
 
-    if st.button("🔍 Fetch HNSC Data & Analyse", type="primary", use_container_width=True):
+    if st.button("馃攳 Fetch HNSC Data & Analyse", type="primary", use_container_width=True):
         with st.spinner("Querying GDC API for TCGA-HNSC..."):
             try:
-                # GDC API — HNSC project gene expression quantification
+                # GDC API 鈥?HNSC project gene expression quantification
                 payload = {
                     "filters": {
                         "op": "and",
@@ -363,7 +357,7 @@ with tabs[2]:
                 hits = data.get("data", {}).get("hits", [])
 
                 if not hits:
-                    st.warning("GDC API returned no results — using simulated HNSC expression data for demonstration.")
+                    st.warning("GDC API returned no results 鈥?using simulated HNSC expression data for demonstration.")
                     raise ValueError("No hits")
 
                 # Classify tumour vs normal
@@ -382,7 +376,7 @@ with tabs[2]:
                 raise ValueError("Use simulation for consistent demo")  # fall to simulation below
 
             except Exception:
-                # ── Simulated HNSC expression data based on published literature ──
+                # 鈹€鈹€ Simulated HNSC expression data based on published literature 鈹€鈹€
                 np.random.seed(42)
                 n_tumor, n_normal = 30, 15
 
@@ -422,7 +416,7 @@ with tabs[2]:
                 down_n = (deg_df['Regulation'] == 'Down').sum()
                 st.info(f"Simulated TCGA-HNSC data  |  {n_tumor} tumour vs {n_normal} normal  |  **{up_n} upregulated**, **{down_n} downregulated** genes")
 
-                # ── Volcano plot ──
+                # 鈹€鈹€ Volcano plot 鈹€鈹€
                 fig, ax = plt.subplots(figsize=(8, 5))
                 colors_map = {'NS': '#cccccc', 'Up': '#e74c3c', 'Down': '#3498db'}
                 for reg, grp in deg_df.groupby('Regulation'):
@@ -443,20 +437,20 @@ with tabs[2]:
                 ax.axvline(x=fc_thresh, color='grey', linestyle='--', linewidth=1)
                 ax.axvline(x=-fc_thresh, color='grey', linestyle='--', linewidth=1)
                 ax.axhline(y=-np.log10(pval_thresh), color='grey', linestyle='--', linewidth=1)
-                ax.set_xlabel("log₂ Fold Change (Tumour / Normal)", fontsize=11)
-                ax.set_ylabel("-log₁₀(p-value)", fontsize=11)
+                ax.set_xlabel("log鈧?Fold Change (Tumour / Normal)", fontsize=11)
+                ax.set_ylabel("-log鈧佲個(p-value)", fontsize=11)
                 ax.set_title("TCGA-HNSC Differential Expression Volcano Plot", fontsize=12, fontweight='bold')
                 ax.legend(fontsize=9); ax.grid(True, alpha=0.2)
                 plt.tight_layout()
                 st.pyplot(fig); plt.close()
 
-                # ── Target gene summary ──
+                # 鈹€鈹€ Target gene summary 鈹€鈹€
                 st.subheader("Target Gene Expression Summary")
                 tgt_data = deg_df[deg_df['Gene'].isin(target_genes)][
                     ['Gene','log2FC','pval','Regulation','mean_tumor','mean_normal']
                 ].sort_values('log2FC', ascending=False).reset_index(drop=True)
-                tgt_data.columns = ['Gene','log₂FC','p-value','Status','Mean Tumour','Mean Normal']
-                tgt_data['log₂FC'] = tgt_data['log₂FC'].round(3)
+                tgt_data.columns = ['Gene','log鈧侳C','p-value','Status','Mean Tumour','Mean Normal']
+                tgt_data['log鈧侳C'] = tgt_data['log鈧侳C'].round(3)
                 tgt_data['p-value'] = tgt_data['p-value'].apply(lambda x: f"{x:.2e}")
                 tgt_data['Mean Tumour'] = tgt_data['Mean Tumour'].round(2)
                 tgt_data['Mean Normal'] = tgt_data['Mean Normal'].round(2)
@@ -466,13 +460,11 @@ with tabs[2]:
                 hmgcr_row = deg_df[deg_df['Gene'] == 'HMGCR']
                 if not hmgcr_row.empty:
                     fc_val = hmgcr_row.iloc[0]['log2FC']
-                    st.markdown(f'<div class="info-box"><b>HMGCR</b> (Atorvastatin primary target) shows log₂FC = {fc_val:.2f} in HNSC tumour vs normal, supporting Atorvastatin as a mechanistically relevant therapeutic candidate for oral carcinoma.</div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="info-box"><b>HMGCR</b> (Atorvastatin primary target) shows log鈧侳C = {fc_val:.2f} in HNSC tumour vs normal, supporting Atorvastatin as a mechanistically relevant therapeutic candidate for oral carcinoma.</div>', unsafe_allow_html=True)
 
-# ═══════════════════════════════════════════════════════════════════════════
-# TAB 4 — Buccal Film QC Dashboard
-# ═══════════════════════════════════════════════════════════════════════════
-with tabs[3]:
-    st.markdown('<div class="section-header">🎞️ Buccal Film Characterization & QC Dashboard</div>', unsafe_allow_html=True)
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?# TAB 4 鈥?Buccal Film QC Dashboard
+# 鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺?with tabs[3]:
+    st.markdown('<div class="section-header">馃帪锔?Buccal Film Characterization & QC Dashboard</div>', unsafe_allow_html=True)
     st.markdown('<div class="info-box">Input physicochemical characterization data for your chitosan-based buccal films. Automated QC scoring against ICH and published pharmacopoeial acceptance criteria.</div>', unsafe_allow_html=True)
 
     n_batches = st.number_input("Number of formulation batches", 1, 6, 3)
@@ -489,32 +481,32 @@ with tabs[3]:
                 'Batch': f'F{i+1}',
                 'Thickness (mm)': st.number_input(f"Thickness (mm) F{i+1}", 0.05, 1.0, round(0.18 + i*0.03, 2), 0.01, key=f"th{i}"),
                 'Weight (mg)': st.number_input(f"Weight (mg) F{i+1}", 50.0, 300.0, round(120.0 + i*8, 1), 1.0, key=f"wt{i}"),
-                'Folding Endurance': st.number_input(f"Folding endurance F{i+1}", 50, 400, 180 + i*20, 5, key=f"fe{i}"),
-                'Tensile Strength (MPa)': st.number_input(f"Tensile strength (MPa) F{i+1}", 0.5, 10.0, round(3.2 + i*0.4, 1), 0.1, key=f"ts{i}"),
-                'Elongation (%)': st.number_input(f"Elongation at break (%) F{i+1}", 5.0, 80.0, round(28 + i*4, 1), 0.5, key=f"el{i}"),
-                'Moisture (%)': st.number_input(f"Moisture content (%) F{i+1}", 1.0, 20.0, round(6.5 - i*0.5, 1), 0.1, key=f"mc{i}"),
-                'Swelling Index (%)': st.number_input(f"Swelling index (%) F{i+1}", 20.0, 200.0, round(85 + i*10, 1), 1.0, key=f"si{i}"),
-                'Mucoadhesion (g)': st.number_input(f"Mucoadhesive force (g) F{i+1}", 5.0, 100.0, round(32 + i*5, 1), 0.5, key=f"ma{i}"),
+                'Folding Endurance': st.number_input(f"Folding endurance F{i+1}", 50, 400, int(180 + i*20), 5, key=f"fe{i}"),
+                'Tensile Strength (MPa)': st.number_input(f"Tensile strength (MPa) F{i+1}", 0.5, 10.0, float(round(3.2 + i*0.4, 1)), 0.1, key=f"ts{i}"),
+                'Elongation (%)': st.number_input(f"Elongation at break (%) F{i+1}", 5.0, 80.0, float(round(28 + i*4, 1)), 0.5, key=f"el{i}"),
+                'Moisture (%)': st.number_input(f"Moisture content (%) F{i+1}", 1.0, 20.0, float(round(6.5 - i*0.5, 1)), 0.1, key=f"mc{i}"),
+                'Swelling Index (%)': st.number_input(f"Swelling index (%) F{i+1}", 20.0, 200.0, float(round(85 + i*10, 1)), 1.0, key=f"si{i}"),
+                'Mucoadhesion (g)': st.number_input(f"Mucoadhesive force (g) F{i+1}", 5.0, 100.0, float(round(32 + i*5, 1)), 0.5, key=f"ma{i}"),
                 'Drug Content (%)': st.number_input(f"Drug content (%) F{i+1}", 80.0, 115.0, round(98.2 - i*0.8, 1), 0.1, key=f"dc{i}"),
                 'pH': st.number_input(f"Surface pH F{i+1}", 5.5, 8.0, round(6.5 + i*0.1, 1), 0.1, key=f"ph{i}"),
             }
             batch_data.append(b)
 
-    if st.button("🧪 Run QC Analysis", type="primary", use_container_width=True):
+    if st.button("馃И Run QC Analysis", type="primary", use_container_width=True):
         df = pd.DataFrame(batch_data).set_index('Batch')
 
         # Acceptance criteria (literature + BP/USP)
         criteria = {
-            'Thickness (mm)':       (0.10, 0.50, "0.10–0.50"),
-            'Weight (mg)':          (80,  200,   "80–200"),
+            'Thickness (mm)':       (0.10, 0.50, "0.10鈥?.50"),
+            'Weight (mg)':          (80,  200,   "80鈥?00"),
             'Folding Endurance':    (150, 400,   ">150"),
-            'Tensile Strength (MPa)': (1.5, 8.0, "1.5–8.0"),
-            'Elongation (%)':       (10,  70,    "10–70"),
-            'Moisture (%)':         (2,   10,    "2–10"),
-            'Swelling Index (%)':   (50,  180,   "50–180"),
+            'Tensile Strength (MPa)': (1.5, 8.0, "1.5鈥?.0"),
+            'Elongation (%)':       (10,  70,    "10鈥?0"),
+            'Moisture (%)':         (2,   10,    "2鈥?0"),
+            'Swelling Index (%)':   (50,  180,   "50鈥?80"),
             'Mucoadhesion (g)':     (20,  90,    ">20"),
-            'Drug Content (%)':     (90,  110,   "90–110"),
-            'pH':                   (5.5, 8.0,   "5.5–8.0"),
+            'Drug Content (%)':     (90,  110,   "90鈥?10"),
+            'pH':                   (5.5, 8.0,   "5.5鈥?.0"),
         }
 
         # QC scoring
@@ -531,7 +523,7 @@ with tabs[3]:
             qc_pass[batch] = passes
 
         # Summary table
-        st.subheader("QC Summary — Pass/Fail per Parameter")
+        st.subheader("QC Summary 鈥?Pass/Fail per Parameter")
         qc_display = pd.DataFrame(qc_pass).T
         qc_display['QC Score'] = [qc_scores[b] for b in qc_display.index]
         qc_display['QC Score'] = qc_display['QC Score'].astype(str) + f"/{len(criteria)}"
@@ -544,7 +536,7 @@ with tabs[3]:
                     subset=[c for c in qc_display.columns if c != 'QC Score'])
         st.dataframe(styled, use_container_width=True)
 
-        # Bar chart — QC scores
+        # Bar chart 鈥?QC scores
         fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
         ax1 = axes[0]
