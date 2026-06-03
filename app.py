@@ -545,9 +545,8 @@ with tabs[3]:
         st.dataframe(styled, use_container_width=True)
 
         # Bar chart — QC scores
-        fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+        fig1, ax1 = plt.subplots(figsize=(6, 4))
 
-        ax1 = axes[0]
         batches = list(qc_scores.keys())
         scores_v = [int(v.split('/')[0]) for v in qc_display['QC Score']]
         bar_c = ['#2e7d32' if s == len(criteria) else '#f57c00' if s >= len(criteria)*0.7 else '#c62828' for s in scores_v]
@@ -556,9 +555,11 @@ with tabs[3]:
         ax1.axhline(y=len(criteria), color='green', linestyle='--', linewidth=1.5, label='Full pass')
         ax1.set_ylabel("Parameters Passed"); ax1.set_title("QC Score by Batch")
         ax1.set_ylim(0, len(criteria)+1); ax1.legend(fontsize=8); ax1.grid(True, alpha=0.3)
+        plt.tight_layout()
+        st.pyplot(fig1); plt.close()
 
-        # Radar for each batch
-        ax2 = axes[1]
+        # Radar for each batch — separate polar figure
+        fig2, ax2 = plt.subplots(figsize=(5, 5), subplot_kw=dict(polar=True))
         params_radar = ['Tensile\nStrength','Elongation','Moisture','Swelling\nIndex','Mucoadhesion','Drug\nContent']
         param_keys   = ['Tensile Strength (MPa)','Elongation (%)','Moisture (%)','Swelling Index (%)','Mucoadhesion (g)','Drug Content (%)']
         norm_ranges  = [(1.5,8.0),(10,70),(2,10),(50,180),(20,90),(90,110)]
@@ -583,7 +584,7 @@ with tabs[3]:
         ax2.set_title("Multi-batch Property Radar", fontsize=10, fontweight='bold', pad=15)
         ax2.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1), fontsize=9)
         plt.tight_layout()
-        st.pyplot(fig); plt.close()
+        st.pyplot(fig2); plt.close()
 
         # Best batch recommendation
         best_batch = max(qc_scores, key=qc_scores.get)
