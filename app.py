@@ -55,7 +55,8 @@ tabs = st.tabs([
     "🧪 Tab 1 · Formulation Optimizer",
     "📈 Tab 2 · Release Kinetics",
     "🧬 Tab 3 · HNSC Genomics",
-    "🎞️ Tab 4 · Buccal Film QC"
+    "🎞️ Tab 4 · Buccal Film QC",
+    "📄 Tab 5 · About This Pipeline"
 ])
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -594,3 +595,104 @@ with tabs[3]:
         # Comparison table
         st.subheader("Full Parameter Comparison")
         st.dataframe(df.T, use_container_width=True)
+
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 5 — About This Pipeline
+# ═══════════════════════════════════════════════════════════════════════════
+with tabs[4]:
+    st.markdown('<div class="section-header">📄 About This Pipeline</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+<style>
+.about-title {
+    font-size: 1.6rem; font-weight: 800; color: #1a1a2e;
+    border-bottom: 3px solid #4a90d9; padding-bottom: 6px; margin-bottom: 4px;
+}
+.about-subtitle {
+    font-size: 0.95rem; color: #555; font-style: italic; margin-bottom: 18px;
+}
+.about-section {
+    font-size: 0.92rem; font-weight: 700; color: #2E4057;
+    border-left: 4px solid #4a90d9; padding-left: 10px;
+    margin: 18px 0 6px 0;
+}
+.about-body {
+    font-size: 0.9rem; color: #222; line-height: 1.7;
+    text-align: justify; margin-bottom: 10px;
+}
+.module-label {
+    font-weight: 700; color: #1a1a2e;
+}
+.about-footer {
+    background: #f0f4ff; border-left: 4px solid #1a1a2e;
+    padding: 12px 16px; border-radius: 6px;
+    font-size: 0.88rem; color: #333; margin-top: 20px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.markdown('<div class="about-title">Oral Carcinoma NanoPharm Pipeline</div>', unsafe_allow_html=True)
+        st.markdown('<div class="about-subtitle">A Computational Formulation Intelligence Platform for Chitosan-Based Buccal Drug Delivery</div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="about-section">Executive Summary</div>', unsafe_allow_html=True)
+        st.markdown("""<div class="about-body">
+Formulation development for oral mucosal drug delivery involves an iterative cycle of trial-and-error experimentation
+that is resource-intensive, difficult to standardize, and rarely supported by integrated quantitative tools.
+The Oral Carcinoma NanoPharm Pipeline was built to address this gap directly: it provides a four-module,
+web-deployed computational platform that translates established pharmaceutical science — ionotropic gelation physics,
+dissolution mathematics, pharmacopoeial quality standards, and cancer genomics — into an interactive environment
+that a formulation scientist can operate without any programming knowledge. The platform uses Atorvastatin-loaded
+chitosan nanoparticles impregnated in buccal films for oral carcinoma as its model system, chosen specifically
+for its biological and clinical tractability.
+</div>""", unsafe_allow_html=True)
+
+        st.markdown('<div class="about-section">Technical Module Breakdown</div>', unsafe_allow_html=True)
+
+        modules = [
+            ("Module 1 — Chitosan-TPP Nanoparticle Formulation Optimizer",
+             "Applies empirical mathematical relationships derived from published Taguchi and Box-Behnken design studies of chitosan-TPP ionotropic gelation to predict Critical Quality Attributes (CQAs) from process inputs. Fourteen independent variables — including chitosan concentration, degree of deacetylation, molecular weight class, TPP concentration, preparation pH, sonication time and amplitude, drug:polymer ratio, and stirring speed — feed into regression-based models that output particle size (nm), PDI, zeta potential (mV), encapsulation efficiency (%), drug loading (%), and a mucoadhesion proxy score."),
+            ("Module 2 — In-Vitro Drug Release Kinetics Analyzer",
+             "Cumulative dissolution data are simultaneously fitted to five release models — Zero Order, First Order, Higuchi square-root, Hixson-Crowell cube-root, and Korsmeyer-Peppas power law — using non-linear least-squares regression. Model selection is automated by R² comparison. The Korsmeyer-Peppas exponent n is interpreted mechanistically: n ≤ 0.45 (Fickian diffusion), 0.45 < n < 0.89 (anomalous transport), n ≥ 0.89 (Case II erosion). T₅₀ and T₈₀ are calculated automatically."),
+            ("Module 3 — TCGA-HNSC Genomic Target Validation",
+             "Contextualises the formulation within its therapeutic rationale by querying TCGA Head and Neck Squamous Cell Carcinoma (HNSC) expression data through the GDC API. Differential expression analysis between tumour and normal samples is displayed as a volcano plot, with HMGCR (Atorvastatin's primary pharmacological target), EGFR, ERBB2, and TP53 annotated. Confirmed upregulation of HMGCR in HNSC tissue provides genomic justification for Atorvastatin repositioning in oral carcinoma."),
+            ("Module 4 — Buccal Film Physicochemical QC Dashboard",
+             "Up to six formulation batches are evaluated simultaneously against acceptance criteria derived from ICH Q6A, the British Pharmacopoeia, and published buccal film standards. Parameters assessed: film thickness, weight uniformity, folding endurance, tensile strength, elongation at break, moisture content, swelling index, mucoadhesive force, drug content uniformity, and surface pH. Each parameter receives automated pass/fail classification with a multi-batch radar chart for visual comparison."),
+        ]
+
+        for label, text in modules:
+            st.markdown(f'<div class="about-body"><span class="module-label">{label}:</span> {text}</div>', unsafe_allow_html=True)
+
+        st.markdown('<div class="about-section">Laboratory Value and Deployment Rationale</div>', unsafe_allow_html=True)
+        st.markdown("""<div class="about-body">
+In a formulation laboratory setting, this platform functions as a quantitative pre-screening layer before committing
+reagents and instrument time to full experimental runs. The Formulation Optimizer narrows the parameter space for
+nanoparticle preparation; the Release Kinetics module eliminates the need for manual model fitting in spreadsheet
+environments; the QC Dashboard standardises batch evaluation against pharmacopoeial thresholds that are otherwise
+applied inconsistently across researchers. All outputs — including volcano plots, release profile overlays, radar
+charts, and model comparison tables — are rendered at publication-ready resolution. Deployed on Streamlit Cloud
+with no local installation requirement, the platform is accessible to any researcher with a browser, making it
+directly suitable for integration into laboratory onboarding, pre-formulation documentation, and grant-stage
+feasibility reporting.
+</div>""", unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("###")
+        st.markdown('<div class="about-footer"><b>Developer</b><br>Yashwant Nama<br>Independent Computational Researcher<br>Jaipur, Rajasthan, India<br><br><b>Contact</b><br>nama.yashwant@gmail.com<br>+91 9602321982<br><br><b>ORCID</b><br>0009-0003-3443-4413<br><br><b>GitHub</b><br>github.com/YASH4-HD<br><br><b>GATE 2025</b><br>Life Sciences · Score: 419<br><br><b>Qualification</b><br>M.Sc. Zoology (First Division, 72.68%)<br>University of Rajasthan, 2021<br><br><b>Stack</b><br>Python · Streamlit · SciPy<br>RDKit · GDC API · Matplotlib<br><br><b>Model System</b><br>Atorvastatin-loaded<br>Chitosan-TPP NPs<br>Buccal Films<br>Oral Carcinoma</div>', unsafe_allow_html=True)
+
+        st.markdown("---")
+        st.markdown("**Pipeline Modules**")
+        st.markdown("🧪 Formulation Optimizer")
+        st.markdown("📈 Release Kinetics Analyzer")
+        st.markdown("🧬 TCGA-HNSC Genomics")
+        st.markdown("🎞️ Buccal Film QC Dashboard")
+
+        st.markdown("---")
+        st.markdown("**Scientific Basis**")
+        st.markdown("- Taguchi / Box-Behnken Design")
+        st.markdown("- Korsmeyer-Peppas Power Law")
+        st.markdown("- ICH Q6A / USP / BP Criteria")
+        st.markdown("- GDC API · TCGA-HNSC")
+        st.markdown("- HMGCR Genomic Validation")
