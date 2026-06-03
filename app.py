@@ -540,7 +540,7 @@ with tabs[3]:
             if val is True:  return 'background-color: #c8e6c9; color: #1b5e20'
             if val is False: return 'background-color: #ffcdd2; color: #b71c1c'
             return ''
-        styled = qc_display.style.applymap(highlight_pass,
+        styled = qc_display.style.map(highlight_pass,
                     subset=[c for c in qc_display.columns if c != 'QC Score'])
         st.dataframe(styled, use_container_width=True)
 
